@@ -1,0 +1,535 @@
+@font-face {
+    font-family: "Red Hat Text";
+    src: url(./assets/fonts/RedHatText-VariableFont_wght.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    align-items: center;
+    background-color: hsl(20, 50%, 98%);
+    display: flex;
+    font-family: "Red Hat Text";
+    justify-content: center;
+}
+
+.container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 70% 30%;
+    height: 85%;
+    width: 85%;
+}
+
+main {
+    width: 100%;
+}
+
+main h1 {
+    color: hsl(14, 65%, 9%);
+    font-size: 2.5rem;
+}
+
+.products {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* Product */
+
+.product {
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    justify-content: space-between;
+    max-width: 250px;
+}
+
+.image {
+    position: relative;
+}
+
+.image>img {
+    border-radius: 10px;
+    max-height: 240px;
+    width: 100%;
+}
+
+.image .add {
+    background: none;
+    border-radius: 50px;
+    border: none;
+    bottom: -16px;
+    font-weight: 600;
+    height: 42px;
+    position: absolute;
+    right: calc(50% - 79px);
+    width: 158px;
+}
+
+.image .add .to-cart {
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 50px;
+    border: 1px solid hsl(12, 20%, 44%);
+    cursor: pointer;
+    display: flex;
+    gap: 8px;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.image .add .to-cart:hover {
+    border: 1px solid hsl(14, 86%, 42%);
+    color: hsl(14, 86%, 42%);
+}
+
+.image .add .change {
+    align-items: center;
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 50px;
+    display: none;
+    height: 100%;
+    justify-content: space-between;
+    padding: 12px;
+    width: 100%;
+}
+
+.image .add .quantity {
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid hsl(0, 0%, 100%);
+    cursor: pointer;
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    width: 18px;
+}
+
+.image .add span {
+    color: hsl(0, 0%, 100%);
+}
+
+.image .add .quantity:hover {
+    background-color: hsl(0, 0%, 100%);
+}
+
+.image .add .quantity:hover img {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(88%) saturate(6893%) hue-rotate(352deg) brightness(94%) contrast(129%);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 80px;
+}
+
+.info .category {
+    color: hsl(12, 20%, 44%);
+}
+
+.info .name {
+    color: hsl(14, 65%, 9%);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.info .price {
+    color: hsl(14, 86%, 42%);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* End Product */
+
+/* Cart */
+
+.cart {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    height: fit-content;
+    padding: 25px;
+    width: 100%;
+}
+
+.cart .cart-quantity {
+    color: hsl(14, 86%, 42%);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.cart .empty-car-text {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart .empty-car-text img {
+    margin-top: 40px;
+}
+
+.cart .empty-car-text .text {
+    color: hsl(12, 20%, 44%);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.cart .items {
+    display: none;
+    margin: 10px 0 20px;
+    width: 100%;
+}
+
+/* Item */
+
+.cart .items .item {
+    align-items: center;
+    border-bottom: 1px solid hsla(7, 20%, 60%, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.cart .items .item .con .item-name {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.cart .items .item .con .total {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.cart .items .item .con .total .item-times {
+    color: hsl(14, 86%, 42%);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.cart .items .item .con .total .price-one {
+    color: hsl(12, 20%, 44%);
+    margin-right: 4px;
+}
+
+.cart .items .item .con .total .price-all {
+    color: hsla(14, 65%, 9%, 0.8);
+    font-weight: 500;
+}
+
+.cart .items .item .delete {
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid hsla(12, 20%, 44%, 0.8);
+    cursor: pointer;
+    display: flex;
+    height: 18px;
+    justify-content: center;
+    width: 18px;
+}
+
+.cart .items .item .delete img {
+    filter: brightness(0) saturate(100%) invert(41%) sepia(14%) saturate(809%) hue-rotate(325deg) brightness(96%) contrast(93%);
+    height: 10px;
+    opacity: 0.8;
+    width: 10px;
+}
+
+.cart .items .item .delete:hover {
+    border-color: hsl(12, 20%, 44%);
+}
+
+.cart .items .item .delete:hover img {
+    opacity: 1;
+}
+
+/* End Item */
+
+.cart .order {
+    display: none;
+    width: 100%;
+}
+
+.cart .order .amount {
+    align-items: center;
+    color: hsl(14, 65%, 9%);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.cart .order .amount>p:first-child {
+    font-size: 0.85rem;
+
+}
+
+.cart .order .amount .dollars {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.cart .order .carbon {
+    align-items: center;
+    background-color: hsl(20, 50%, 98%);
+    border-radius: 5px;
+    color: hsl(12, 20%, 44%)s;
+    display: flex;
+    font-size: 0.9rem;
+    gap: 5px;
+    height: 50px;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart .order .carbon .bold {
+    color: hsl(14, 65%, 9%);
+    font-weight: 700;
+}
+
+.cart .order button {
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 50px;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    font-family: "Red Hat Text";
+    font-weight: 600;
+    height: 52px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.cart .order button:hover {
+    background-color: hsla(14, 65%, 9%, 0.9);
+}
+
+/* End Cart */
+
+.confirmed {
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, 0.4);
+    display: none;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.confirmed .checkout {
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: space-between;
+    max-height: 685px;
+    padding: 40px;
+    transition: all 2s ease;
+    width: 592px;
+}
+
+.confirmed .checkout .confirmation {
+    color: hsl(12, 20%, 44%);
+    width: 100%;
+}
+
+.confirmed .checkout .confirmation h2 {
+    color: hsl(14, 65%, 9%);
+    font-size: 2.4rem;
+    margin: 15px 0 10px;
+}
+
+.confirmed .checkout .summary {
+    background-color: hsl(20, 50%, 98%);
+    border-radius: 10px;
+    height: fit-content;
+    margin-top: 30px;
+    padding: 24px;
+    width: 100%;
+}
+
+.confirmed .checkout .summary .final-items {
+    max-height: 160px;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.confirmed .checkout .summary .final-items .final-item {
+    align-items: center;
+    border-bottom: 1px solid hsla(7, 20%, 60%, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    width: 100%;
+}
+
+.confirmed .checkout .summary .final-items .final-item:first-child {
+    padding-top: 0;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content {
+    display: flex;
+    gap: 20px;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content img {
+    border-radius: 5px;
+    height: 48px;
+    width: 48px;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content .final-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content .final-details .final-name {
+    color: hsl(14, 65%, 9%);
+    font-weight: bold;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content .final-details .final-q {
+    color: hsl(14, 86%, 42%);
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-content .final-details .final-p {
+    color: hsl(12, 20%, 44%);
+}
+
+.confirmed .checkout .summary .final-items .final-item .final-total-price {
+    color: hsl(14, 65%, 9%);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.confirmed .checkout .summary .final-amount {
+    align-items: center;
+    color: hsl(14, 65%, 9%);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.confirmed .checkout .summary .final-amount p:first-child {
+    font-size: 0.9rem;
+}
+
+.confirmed .checkout .summary .final-amount .final-total-amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.confirmed .checkout button {
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 50px;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    font-family: "Red Hat Text";
+    font-weight: 600;
+    height: 52px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.confirmed .checkout button:hover {
+    background-color: hsla(14, 65%, 9%, 0.9);
+}
+
+.attribution {
+    display: none;
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (max-height: 900px) {
+    .confirmed .checkout {
+        height: 95%;
+    }
+
+    .confirmed .checkout .summary .final-items {
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        grid-template-columns: 60% 40%;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        margin-bottom: 40px;
+    }
+
+    .product {
+        height: 320px;
+        margin-top: 50px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .image>img {
+        height: 424px;
+    }
+
+    .info {
+        margin-top: 40px;
+    }
+
+    .confirmed {
+        align-items: flex-end;
+    }
+
+    .confirmed .checkout {
+        border-radius: 20px 20px 0 0;
+        height: fit-content;
+        max-height: 85%;
+        width: 100%;
+    }
+
+    .confirmed .checkout .summary .final-items {
+        max-height: 280px;
+    }
+}

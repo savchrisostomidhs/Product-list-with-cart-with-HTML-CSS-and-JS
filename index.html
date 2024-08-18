@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Product list with cart</title>
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <h1>Desserts</h1>
+
+      <div class="products"></div>
+    </main>
+
+    <div class="cart">
+      <p class="cart-quantity">Your Cart (<span class="js-cart-quantity">0<!-- Quantity --></span>)</p>
+      <div class="empty-car-text">
+        <img src="./assets/images/illustration-empty-cart.svg" alt="illustration-empty-cart">
+        <p class="text">Your added items will appear here</p>
+      </div>
+      <div class="items"></div>
+      <div class="order">
+        <div class="amount">
+          <p>Order Total</p>
+          <p class="dollars"></p>
+        </div>
+        <div class="carbon">
+          <img src="./assets/images/icon-carbon-neutral.svg" alt="icon-carbon-neutral">
+          <p>This is a <span class="bold">carbon-neutral</span> delivery</p>
+        </div>
+        <button class="confirm js-confirm">Confirm Order</button>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/savchrisostomidhs">savchrisostomidhs</a>.
+    </div>
+  </div>
+
+  <div class="confirmed">
+    <div class="checkout">
+      <div class="confirmation">
+        <img src="./assets/images/icon-order-confirmed.svg" alt="icon-order-confirmed">
+        <h2>Order Confirmed</h2>
+        <p>We hope you enjoy your food!</p>
+      </div>
+
+      <div class="summary">
+        <div class="final-items"></div>
+        <div class="final-amount">
+          <p>Order Total</p>
+          <p class="final-total-amount"></p>
+        </div>
+      </div>
+
+      <button class="js-new">Start New Order</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
